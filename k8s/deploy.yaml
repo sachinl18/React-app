@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: simple-react-app-deploy
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: simple-react-app
+ template:
+  metadata:
+   labels:
+    app: simple-react-app
+  spec:
+   containers:
+   - name: simple-react-app
+     image: docker.io/liquizar/simple-react-app:latest
+     ports:
+     - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: simple-react-app-svc
+spec:
+ selector:
+  app: simple-react-app
+ ports:
+ - protocol: TCP
+   port: 80
+   targetPort: 3000
+ type: LoadBalancer
