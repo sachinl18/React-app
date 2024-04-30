@@ -8,7 +8,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-  name: self-hosted-eks
+  name: eks-self-hosted
 
 steps:
 - task: NodeTool@0
