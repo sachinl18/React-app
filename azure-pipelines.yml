@@ -34,8 +34,8 @@ steps:
   
 - task: Docker@2
   inputs:
-    containerRegistry: 'liquiDocker'
-    repository: 'liquizar/simple-react-app'
+    containerRegistry: 'docker connection'
+    repository: 'sachinl18/react-app'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
